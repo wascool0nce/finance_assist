@@ -1,16 +1,30 @@
+version: '3'
+
+volumes:
+  postgres_data:
+
 services:
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/Dockerfile
+    entrypoint: /entrypoint
+    ports:
+      - "8009:8009"
+    depends_on:
+      - db
+    env_file:
+      - .envs/.django
+      - .envs/.postgres
+    restart: always
+    command: /start
+
   db:
     image: postgres
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     env_file:
       - .envs/.postgres
-  web:
-    build: apps/
-    command: python manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code
     ports:
-      - "8000:8000"
-    depends_on:
-      - db
+      - "5432:5432"
+
