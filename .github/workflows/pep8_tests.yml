@@ -28,6 +28,6 @@ jobs:
 
       - name: Run Django tests
         run: |
-            python manage.py test
+            python apps/manage.py test
         env:
             DJANGO_SETTINGS_MODULE: apps.config.settings
