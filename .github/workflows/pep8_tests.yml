@@ -30,4 +30,4 @@ jobs:
         run: |
             python apps/manage.py test
         env:
-            DJANGO_SETTINGS_MODULE: apps.config.settings
+            DJANGO_SETTINGS_MODULE: config.settings
