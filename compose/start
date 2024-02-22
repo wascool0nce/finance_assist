@@ -6,7 +6,7 @@ set -o nounset
 
 python manage.py migrate
 # python manage.py collectstatic --noinput
-exec gunicorn config.wsgi:application --bind 0.0.0.0:8009 --reload
+exec gunicorn config.wsgi:application --bind 0.0.0.0:8000 --reload
 # s3fs prob /bot/stats -o passwd_file=$HOME/.passwd-s3fs -o url=https://storage.yandexcloud.net -o use_path_request_style
 # alembic upgrade head
 # python main.py

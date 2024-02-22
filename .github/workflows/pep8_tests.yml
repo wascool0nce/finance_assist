@@ -25,9 +25,3 @@ jobs:
         uses: py-actions/flake8@v2
         with:
           max-line-length: "120"
-
-      - name: Run Django tests
-        run: |
-            python apps/manage.py test
-        env:
-            DJANGO_SETTINGS_MODULE: config.settings

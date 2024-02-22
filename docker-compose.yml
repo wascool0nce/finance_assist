@@ -10,7 +10,7 @@ services:
       dockerfile: ./compose/Dockerfile
     entrypoint: /entrypoint
     ports:
-      - "8009:8009"
+      - "8000:8000"
     depends_on:
       - db
     env_file:
